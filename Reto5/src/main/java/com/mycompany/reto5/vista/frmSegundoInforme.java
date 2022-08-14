@@ -4,6 +4,9 @@
  */
 package com.mycompany.reto5.vista;
 
+import com.mycompany.reto5.modelo.DAO.SegundaConsulta;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lorep
@@ -13,8 +16,17 @@ public class frmSegundoInforme extends javax.swing.JFrame {
     /**
      * Creates new form frmSegundoInforme
      */
+    DefaultTableModel modelo = new DefaultTableModel();
     public frmSegundoInforme() {
         initComponents();
+        modelo.addColumn("ID_Proyecto");
+                modelo.addColumn("Constructora");
+        modelo.addColumn("Número de Habitaciones");
+        modelo.addColumn("Ciudad");
+        tblDatos.setModel(modelo);
+        
+        SegundaConsulta segunda_consulta = new SegundaConsulta();
+        segunda_consulta.segundaconsulta(modelo);
     }
 
     /**
@@ -27,21 +39,11 @@ public class frmSegundoInforme extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDatos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tblDatos.setModel(modelo);
+        jScrollPane1.setViewportView(tblDatos);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("Segundo Informe: Proyectos Casa Campestre");
@@ -64,7 +66,7 @@ public class frmSegundoInforme extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,6 +80,6 @@ public class frmSegundoInforme extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblDatos;
     // End of variables declaration//GEN-END:variables
 }
