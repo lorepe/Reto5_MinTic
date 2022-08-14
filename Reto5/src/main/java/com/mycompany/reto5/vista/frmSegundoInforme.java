@@ -17,14 +17,15 @@ public class frmSegundoInforme extends javax.swing.JFrame {
      * Creates new form frmSegundoInforme
      */
     DefaultTableModel modelo = new DefaultTableModel();
+
     public frmSegundoInforme() {
         initComponents();
         modelo.addColumn("ID_Proyecto");
-                modelo.addColumn("Constructora");
+        modelo.addColumn("Constructora");
         modelo.addColumn("Número de Habitaciones");
         modelo.addColumn("Ciudad");
         tblDatos.setModel(modelo);
-        
+
         SegundaConsulta segunda_consulta = new SegundaConsulta();
         segunda_consulta.segundaconsulta(modelo);
     }
@@ -76,7 +77,7 @@ public class frmSegundoInforme extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
